@@ -1,0 +1,96 @@
+html, body, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    padding-top: 100px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    height: 100vh;
+}
+.check_list {
+    width: 703px;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 18px 15px 22px;
+    background: #3579F5;
+    border-radius: 10px;
+}
+.check_list_description {
+
+}
+.description_title {
+    font-size: 12px;
+    line-height: 18px;
+    color: #ffffff;
+    background: #2364DB;
+    border-radius: 40px;
+    width: 76px;
+    height: 18px;
+    padding: 0 10px 0 10px;
+    text-align: center;
+}
+.description_progress {
+    font-size: 15px;
+    line-height: 20px;
+    color: #ffffff;
+    font-weight: 600;
+    margin: 4px 0 4px 0;
+}
+.description_actions {
+    font-size: 12px;
+    line-height: 18px;
+    color: #ffffff;
+}
+.check_list_open_button {
+    width: 170px;
+    height: 40px;
+    color: #4777ED;
+    background: #F4F8FF;
+    padding: 10px 25px;
+    border-radius: 6px;
+    border: none;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+@keyframes growProgressBar {
+    0%, 33% { --pgPercentage: 0; }
+    100% { --pgPercentage: var(--value); }
+  }
+  
+  @property --pgPercentage {
+    syntax: '<number>';
+    inherits: false;
+    initial-value: 0;
+  }
+  
+  div[role="progressbar"] {
+    --size: 60px;
+    --fg: #FFFFFF;
+    --bg: #FFFFFF80;
+    --pgPercentage: var(--value);
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: 
+      radial-gradient(closest-side, #3579F5 95%, transparent 0 99.9%, white 0),
+      conic-gradient(var(--fg) calc(var(--pgPercentage) * 14.28%), var(--bg) 0);
+    font-size: 20px; /*20px*/
+    line-height: 30px;
+    color: #ffffff; /*#ffffff*/
+  }
+  
+  div[role="progressbar"]::before {
+    counter-reset: percentage var(--value);
+    content: counter(percentage) '/7';
+  }
